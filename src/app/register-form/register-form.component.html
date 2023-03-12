@@ -1,0 +1,157 @@
+<section class="vh-100">
+    <div class="container-fluid h-custom mb-3">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <!-- <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div> -->
+        <div class="register-form">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <label>*Email*</label>
+              <input
+                type="text"
+                formControlName="email"
+                class="form-control"
+                placeholder="email"
+                [ngClass]="{ 'is-invalid':f['email'].touched && f['email'].errors  }"/>
+               <div *ngIf="f['email'].touched && f['email'].errors" class="invalid" >
+                <div *ngIf="f['email'].errors['required']"><p style="color: red;">Email is required </p></div>
+                <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+              </div> 
+              <!-- <div *ngIf="submitted && f['email'].touched && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">Email is required</div>
+                <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+              </div> -->
+            </div>
+        
+            <div class="form-group">
+              <label>*Password*</label>
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                placeholder="password"
+                [ngClass]="{ 'is-invalid':f['password'].touched && f['password'].errors }"
+              />
+              <!-- <div *ngIf="f['password'].touched && f['password'].errors" class="invalid" >
+                <div *ngIf="f['password'].errors['required']"><p style="color:red">Password is required</p></div>
+              </div>  -->
+              <div *ngIf="f['password'].touched && f['password'].errors" class="invalid">
+                <div *ngIf="f['password'].errors['required']"><p style="color:red"> Password is required</p></div>
+                <div *ngIf="f['password'].errors['minlength']" class="invalid">
+                 <p>Password must be at least 6 characters</p> 
+                </div>
+                <div *ngIf="f['password'].errors['maxlength']" class="invalid">
+                  <p>Username must not exceed 10 characters</p>
+                </div>
+                <div *ngIf="f['password'].errors['pattern']" class="invalid">
+                  <p>Password must be A-Z characters,</p> 
+                     Password must be a number.
+                </div>
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <label>*Confirm Password*</label>
+              <input
+                type="password"
+                formControlName="confirmPassword"
+                class="form-control"
+                placeholder="confirmPassword"
+                [ngClass]="{ 'is-invalid':f['confirmPassword'].touched && f['confirmPassword'].errors }"
+              />
+              <!-- <div *ngIf="f['confirmPassword'].touched && f['confirmPassword'].errors" class="invalid" >
+                <div *ngIf="f['confirmPassword'].errors['required']"><p style="color:red">confirmPassword is required</p></div>
+              </div>  -->
+              <div *ngIf="f['confirmPassword'].touched && f['confirmPassword'].errors" class="invalid">
+                <div *ngIf="f['confirmPassword'].touched && f['confirmPassword'].errors['required']">
+                 <p style="color:red"> Confirm Password is required</p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex">
+            <div class="form-group ml-3 text-gray-700">
+              <label>*Full Name*</label>
+              <input
+                type="text"
+                formControlName="fullname"
+                class="form-control"
+                placeholder="fullname"
+                [ngClass]="{ 'is-invalid':f['fullname'].touched && f['fullname'].errors }"
+              />
+              <div *ngIf="f['fullname'].errors" class="invalid-feedback">
+                <div *ngIf="f['fullname'].errors['required']"><p style="color: red;">fullname is required </p></div>
+              </div>
+            </div>
+        
+            <div class="form-group ml-3 text-gray-700">
+              <label>*Username*</label>
+              <input
+                type="text"
+                formControlName="username"
+                class="form-control"
+                placeholder="username"
+                [ngClass]="{ 'is-invalid':f['username'].touched && f['username'].errors }"
+              />
+              <div *ngIf="f['username'].touched && f['username'].errors" class="invalid-feedback">
+                <div *ngIf="f['username'].errors['required']"><p style="color: red;">username is required </p></div>
+                <div *ngIf="f['username'].errors['minlength']">
+                  Username must be at least 6 characters
+                </div>
+                <div *ngIf="f['username'].errors['maxlength']">
+                  Username must not exceed 20 characters
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="form-outline mb-3">
+              <label class="form-label" for="form3Example4">date</label>
+              <input type="date" id="form3Example4" class="form-control form-control-lg"
+                placeholder="Enter date of birth" />
+              </div>
+              <div class="d-flex ml-3">
+                <div class="flex items-center justify-start">
+                  <p>gender</p>
+                </div>
+                <span class="ml-5 text-gray-700">
+                  <input class="ml-3 text-gray-700" type="radio">female
+                  <input class="ml-3 text-gray-700" type="radio">male
+                </span>
+            </div>        
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                formControlName="acceptTerms"
+                class="form-check-input"
+                [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+              />
+              <label for="acceptTerms" class="form-check-label"
+                >I have read and agree to the Terms</label
+              >
+              <div
+                *ngIf="submitted && f['acceptTerms'].errors"
+                class="invalid-feedback"
+              >
+                Accept Terms is required
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Register</button>
+              <button
+                type="button"
+                (click)="onReset()"
+                class="btn btn-warning float-right"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>  
+        </div>
+      </div>
+  </section>
+
+
+  
