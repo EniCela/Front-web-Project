@@ -1,15 +1,47 @@
-<section class="vh-100">
+<section class="vh-100 ">
     <div class="container-fluid h-custom mb-3">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <!-- <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-            class="img-fluid" alt="Sample image">
-        </div> -->
         <div class="register-form">
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="d-flex">
+              <div class="form-group  text-gray-500">
+                <!-- <label>*Full Name*</label> -->
+                <input
+                  type="text"
+                  formControlName="fullname"
+                  class="form-control"
+                  placeholder="fullname"
+                  [ngClass]="{ 'is-invalid':f['fullname'].touched && f['fullname'].errors }"
+                />
+                <div *ngIf="f['fullname'].errors" class="invalid-feedback">
+                  <div *ngIf="f['fullname'].errors['required']"><p style="color: red;">fullname is required </p></div>
+                </div>
+              </div>
+          
+              <div class="form-group">
+                <!-- <label>*Username*</label> -->
+                <input
+                  type="text"
+                  formControlName="username"
+                  class="form-control"
+                  placeholder="username"
+                  [ngClass]="{ 'is-invalid':f['username'].touched && f['username'].errors }"
+                />
+                <div *ngIf="f['username'].touched && f['username'].errors" class="invalid-feedback">
+                  <div *ngIf="f['username'].errors['required']"><p style="color: red;">username is required </p></div>
+                  <div *ngIf="f['username'].errors['minlength']">
+                    Username must be at least 6 characters
+                  </div>
+                  <div *ngIf="f['username'].errors['maxlength']">
+                    Username must not exceed 20 characters
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
             <div class="form-group">
-              <label>*Email*</label>
+              <!-- <label>*Email*</label> -->
               <input
                 type="text"
                 formControlName="email"
@@ -27,7 +59,7 @@
             </div>
         
             <div class="form-group">
-              <label>*Password*</label>
+              <!-- <label>*Password*</label> -->
               <input
                 type="password"
                 formControlName="password"
@@ -54,7 +86,7 @@
             </div>
         
             <div class="form-group">
-              <label>*Confirm Password*</label>
+              <!-- <label>*Confirm Password*</label> -->
               <input
                 type="password"
                 formControlName="confirmPassword"
@@ -71,43 +103,8 @@
                 </div>
               </div>
             </div>
-            <div class="d-flex">
-            <div class="form-group ml-3 text-gray-700">
-              <label>*Full Name*</label>
-              <input
-                type="text"
-                formControlName="fullname"
-                class="form-control"
-                placeholder="fullname"
-                [ngClass]="{ 'is-invalid':f['fullname'].touched && f['fullname'].errors }"
-              />
-              <div *ngIf="f['fullname'].errors" class="invalid-feedback">
-                <div *ngIf="f['fullname'].errors['required']"><p style="color: red;">fullname is required </p></div>
-              </div>
-            </div>
-        
-            <div class="form-group ml-3 text-gray-700">
-              <label>*Username*</label>
-              <input
-                type="text"
-                formControlName="username"
-                class="form-control"
-                placeholder="username"
-                [ngClass]="{ 'is-invalid':f['username'].touched && f['username'].errors }"
-              />
-              <div *ngIf="f['username'].touched && f['username'].errors" class="invalid-feedback">
-                <div *ngIf="f['username'].errors['required']"><p style="color: red;">username is required </p></div>
-                <div *ngIf="f['username'].errors['minlength']">
-                  Username must be at least 6 characters
-                </div>
-                <div *ngIf="f['username'].errors['maxlength']">
-                  Username must not exceed 20 characters
-                </div>
-              </div>
-            </div>
-          </div>
             <div class="form-outline mb-3">
-              <label class="form-label" for="form3Example4">date</label>
+              <!-- <label class="form-label" for="form3Example4">date</label> -->
               <input type="date" id="form3Example4" class="form-control form-control-lg"
                 placeholder="Enter date of birth" />
               </div>

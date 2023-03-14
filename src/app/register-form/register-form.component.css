@@ -88,3 +88,6 @@
     align-items: center;
     justify-content: flex-start;
 } 
+.container-fluid.h-custom.mb-3{
+    margin-top: 100px;
+}
