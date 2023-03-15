@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="split left">
+        <div class="centered">
+          <img src="https://images.businessnewsdaily.com/app/uploads/2022/04/04073619/how-ecommerce-works.png">
+          <p>Some text.Some text.Some text.Some text.Some text.Some text.Some text.Some text.</p>
+        </div>
+      </div>
+      
+      <div class="split right">
+        <div class="centered">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="register-form">
+                  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <p class="register">Login</p>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        formControlName="email"
+                        class="form-control"
+                        placeholder="email"
+                        [ngClass]="{ 'is-invalid':f['email'].touched && f['email'].errors  }"/>
+                       <div *ngIf="f['email'].touched && f['email'].errors" class="invalid" >
+                        <div *ngIf="f['email'].errors['required']"><p style="color: red;">Email is required </p></div>
+                        <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                      </div> 
+                    </div>
+                
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        formControlName="password"
+                        class="form-control"
+                        placeholder="password"
+                        [ngClass]="{ 'is-invalid':f['password'].touched && f['password'].errors }"
+                      />
+                      <div *ngIf="f['password'].touched && f['password'].errors" class="invalid">
+                        <div *ngIf="f['password'].errors['required']"><p style="color:red"> Password is required</p></div>
+                        <div *ngIf="f['password'].errors['minlength']" class="invalid">
+                         <p>Password must be at least 6 characters</p> 
+                        </div>
+                        <div *ngIf="f['password'].errors['maxlength']" class="invalid">
+                          <p>Username must not exceed 10 characters</p>
+                        </div>
+                        <div *ngIf="f['password'].errors['pattern']" class="invalid">
+                          <p>Password must be A-Z characters,</p> 
+                             Password must be a number.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="registercomp">
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Login</button><br>
+                      <button type="submit" class="btn">click to Register</button>
+                    </div>
+                  </form>
+                </div>  
+                </div>
+        </div>
+      </div>
+</body>
+</html>
