@@ -1,45 +1,17 @@
 <section class="vh-100 ">
     <div class="container-fluid h-custom mb-3">
-      <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="split left">
+        <div class="centered">
+          <img class="image" src="https://images.businessnewsdaily.com/app/uploads/2022/04/04073619/how-ecommerce-works.png">
+          <p>Some text.Some text.Some text.Some text.Some text.Some text.</p> 
+        </div>
+      </div>
+      <div class="split right">
+      <div class="centered">
+      <div class="row d-flex justify-content-center align-items-center">
         <div class="register-form">
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="d-flex">
-              <div class="form-group  text-gray-500">
-                <!-- <label>*Full Name*</label> -->
-                <input
-                  type="text"
-                  formControlName="fullname"
-                  class="form-control"
-                  placeholder="fullname"
-                  [ngClass]="{ 'is-invalid':f['fullname'].touched && f['fullname'].errors }"
-                />
-                <div *ngIf="f['fullname'].errors" class="invalid-feedback">
-                  <div *ngIf="f['fullname'].errors['required']"><p style="color: red;">fullname is required </p></div>
-                </div>
-              </div>
-          
-              <div class="form-group">
-                <!-- <label>*Username*</label> -->
-                <input
-                  type="text"
-                  formControlName="username"
-                  class="form-control"
-                  placeholder="username"
-                  [ngClass]="{ 'is-invalid':f['username'].touched && f['username'].errors }"
-                />
-                <div *ngIf="f['username'].touched && f['username'].errors" class="invalid-feedback">
-                  <div *ngIf="f['username'].errors['required']"><p style="color: red;">username is required </p></div>
-                  <div *ngIf="f['username'].errors['minlength']">
-                    Username must be at least 6 characters
-                  </div>
-                  <div *ngIf="f['username'].errors['maxlength']">
-                    Username must not exceed 20 characters
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
+            <p class="register">Register</p>
             <div class="form-group">
               <!-- <label>*Email*</label> -->
               <input
@@ -108,7 +80,7 @@
               <input type="date" id="form3Example4" class="form-control form-control-lg"
                 placeholder="Enter date of birth" />
               </div>
-              <div class="d-flex ml-3">
+              <!-- <div class="d-flex ml-3">
                 <div class="flex items-center justify-start">
                   <p>gender</p>
                 </div>
@@ -116,7 +88,7 @@
                   <input class="ml-3 text-gray-700" type="radio">female
                   <input class="ml-3 text-gray-700" type="radio">male
                 </span>
-            </div>        
+            </div>         -->
             <div class="form-group form-check">
               <input
                 type="checkbox"
@@ -148,6 +120,8 @@
         </div>  
         </div>
       </div>
+     </div>
+    </div>
   </section>
 
 

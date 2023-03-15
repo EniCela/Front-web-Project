@@ -23,17 +23,16 @@ constructor(private formBuilder: FormBuilder) {}
 ngOnInit(): void {
   this.form = this.formBuilder.group(
     {
-      fullname: ['', Validators.required],
-      username: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(20),
-        ],
-      ],
+      // fullname: ['', Validators.required],
+      // username: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     Validators.minLength(6),
+      //     Validators.maxLength(20),
+      //   ],
+      // ],
       email : new FormControl('',[ Validators.minLength(5), Validators.required ]),
-      // email: ['', [Validators.required, Validators.email]],
       password: [
         '',
         [
