@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { FormGroup ,ReactiveFormsModule ,FormBuilder ,Validators, FormControl, AbstractControl} from '@angular/forms';
+import { Routes } from '@angular/router';
+import { RegisterFormComponent } from '../register-form/register-form.component';
 import Validation from './validation';
+
+// const routes: Routes = [{
+//   component:RegisterFormComponent,
+//   path:"/about"
+// }];
 
 @Component({
   selector: 'app-login-form',
