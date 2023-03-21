@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyService } from '../myService';
 import { FormGroup ,ReactiveFormsModule ,FormBuilder ,Validators, FormControl, AbstractControl} from '@angular/forms';
 import { Routes } from '@angular/router';
 import { RegisterFormComponent } from '../register-form/register-form.component';
@@ -24,7 +25,7 @@ export class LoginFormComponent {
     acceptTerms: new FormControl(false),
 });
 submitted = false;
-constructor(private formBuilder: FormBuilder) {}
+constructor(private formBuilder: FormBuilder, private myService: MyService) {}
 ngOnInit(): void {
   this.form = this.formBuilder.group(
     {
@@ -34,10 +35,10 @@ ngOnInit(): void {
         [
           Validators.required,
           Validators.minLength(6),
-          Validators.maxLength(10),
-          Validators.pattern(/[a-z]/),
-          Validators.pattern(/[A-Z]/),
-          Validators.pattern(/\d/),
+          Validators.maxLength(10)
+          // Validators.pattern(/[a-z]/),
+          // Validators.pattern(/[A-Z]/),
+          // Validators.pattern(/\d/),
         ],
       ],
     },
@@ -47,14 +48,15 @@ get f(): { [key: string]: AbstractControl } {
   return this.form.controls;
 }
 
-onSubmit(): void {
+onSubmit(){
   this.submitted = true;
 
   if (this.form.invalid) {
     return;
   }
 
-  console.log(JSON.stringify(this.form.value, null, 2));
+  //console.log(JSON.stringify(this.form.value, null, 2));
+  return this.myService.submitData({email : this.form.value.email, password: this.form.value.password});
 }
 
 }
