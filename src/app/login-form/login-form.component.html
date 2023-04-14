@@ -6,14 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="split left">
-        <div class="centered">
-          <img src="https://images.businessnewsdaily.com/app/uploads/2022/04/04073619/how-ecommerce-works.png">
-          <p>Some text.Some text.Some text.Some text.Some text.Some text.Some text.Some text.</p>
-        </div>
-      </div>
-      
-      <div class="split right">
+    <div class="split right">
         <div class="centered">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="register-form">
@@ -29,9 +22,9 @@
                        <div *ngIf="f['email'].touched && f['email'].errors" class="invalid" >
                         <div *ngIf="f['email'].errors['required']"><p style="color: red;">Email is required </p></div>
                         <div *ngIf="f['email'].errors['email']">Email is invalid</div>
-                      </div> 
+                      </div>
                     </div>
-                
+
                     <div class="form-group">
                       <input
                         type="password"
@@ -43,27 +36,28 @@
                       <div *ngIf="f['password'].touched && f['password'].errors" class="invalid">
                         <div *ngIf="f['password'].errors['required']"><p style="color:red"> Password is required</p></div>
                         <div *ngIf="f['password'].errors['minlength']" class="invalid">
-                         <p>Password must be at least 6 characters</p> 
+                         <p>Password must be at least 6 characters</p>
                         </div>
                         <div *ngIf="f['password'].errors['maxlength']" class="invalid">
                           <p>Username must not exceed 10 characters</p>
                         </div>
                         <div *ngIf="f['password'].errors['pattern']" class="invalid">
-                          <p>Password must be A-Z characters,</p> 
-                             Password must be a number.
+                          <p>Password must be A-Z characters,</p>
+                             Password must be a number. <br>
+                             Password must be a-z characters,
                         </div>
                       </div>
-                    </div>
-                    <div class="registercomp">
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Login</button><br>
                       <!-- <button type="submit" class="btn" [routerLinkActive]="about">click to Register</button> -->
-                      <a routerLink="about">click to Register</a>
+                      <br>
+                      <a routerLink="about">Click to register</a><br><br>
+                      <button class="btn-warnin">continue with google <i class="bi bi-google"></i></button>
                     </div>
                   </form>
-                </div>  
                 </div>
+            </div>
         </div>
       </div>
 </body>
