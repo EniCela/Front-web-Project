@@ -68,17 +68,20 @@ onSubmit(){
   }
 
   //console.log(JSON.stringify(this.form.value, null, 2));
-  var password = CryptoJS.SHA256(this.form.value.password).toString();
-  return this.myService.submitRegisterData({email : this.form.value.email, password: password});
+  //var password = CryptoJS.SHA256(this.form.value.password).toString();
+  //return this.myService.submitRegisterData({email : this.form.value.email, password: password});
 }
 
 onReset(): void {
   this.submitted = false;
   this.form.reset();
 }
+onsubmit(){
+
+  console.log(this.form.value)
 
 
-
+}
 
 
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MyService } from '../myService';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { FormGroup ,ReactiveFormsModule ,FormBuilder ,Validators, FormControl, AbstractControl} from '@angular/forms';
 import { Routes } from '@angular/router';
 import { RegisterFormComponent } from '../register-form/register-form.component';
@@ -19,6 +21,7 @@ import * as CryptoJS from 'crypto-js';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
+
 export class LoginFormComponent {
   form: FormGroup = new FormGroup({
     fullname: new FormControl(''),
@@ -29,7 +32,11 @@ export class LoginFormComponent {
     acceptTerms: new FormControl(false),
 });
 submitted = false;
-constructor(private formBuilder: FormBuilder, private myService: MyService) {}
+constructor(
+  private formBuilder: FormBuilder, 
+  private myService: MyService,
+  private http:HttpClient
+  ) {}
 ngOnInit(): void{
 
     this.form = this.formBuilder.group(
@@ -66,9 +73,15 @@ onSubmit(){
     return;
   }
 
+  
   //console.log(JSON.stringify(this.form.value, null, 2));
-  var password = CryptoJS.SHA256(this.form.value.password).toString();
-  return this.myService.submitLoginData({email : this.form.value.email, password: password});
+  //var password = CryptoJS.SHA256(this.form.value.password).toString();
+  //return this.myService.submitLoginData({email : this.form.value.email, password: password});
+}
+ onsubmit(){
+  
+  console.log(this.form.value)
+  //this.http.post(url:'http://localhost:8000/api',data).subscribe
 }
 
 }
