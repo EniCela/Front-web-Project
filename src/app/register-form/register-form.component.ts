@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { FormGroup ,ReactiveFormsModule ,FormBuilder ,Validators, FormControl, AbstractControl} from '@angular/forms';
+import { FormGroup ,ReactiveFormsModule ,FormBuilder ,Validators, FormControl, AbstractControl, NgForm} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
 import Validation from './validation';
 import { MyService } from '../myService';
 import * as CryptoJS from 'crypto-js';
+import { AuthencationService } from '../services/authencation.service';
 
 
 @Component({
@@ -22,7 +25,7 @@ export class RegisterFormComponent {
 
 submitted = false;
 
-constructor(private formBuilder: FormBuilder, private myService: MyService) {}
+constructor(private formBuilder: FormBuilder, private myService: MyService, private http:HttpClient , private auth:AuthencationService) {}
 ngOnInit(): void {
 
   this.form = this.formBuilder.group(
@@ -76,11 +79,21 @@ onReset(): void {
   this.submitted = false;
   this.form.reset();
 }
-onsubmit(){
-
+postId:any
+data:any
+onsubmit(form:FormGroup){
   console.log(this.form.value)
+  
+  const name =form.value.name;
+  const email=form.value.email;
+  const password =form.value.password;
 
-
+   this.auth.register(name,email,password,).subscribe((res)=>{
+    console.log(res);
+   },
+   (err)=>{
+    console.log(err);
+   })
 }
 
 
