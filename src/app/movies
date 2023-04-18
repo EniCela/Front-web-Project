@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compitable " content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale= 1.0"/>
+        <link href="index.css"/>
+        <title>Add Movie </title>
+    </head>  
+    <body>
+        <div class="header">
+            <h5> Movie</h5>
+        </div>
+        <div class="upper-btn-box">
+            <div class="btn-left-box">
+                <button><i class="fa fa-plus"></i>Add Movie </button>
+                <button style="background-color: red;"><i class="fa fa-clear"></i>Clear Movie</button>
+            </div>
+        <div class="btn-right-box"></div>
+        <i class="fa fa-search "></i>
+        <input type="text" id="movId" placeholder="Type here">
+        <button style="background-color: blue;">Search </button>
+        </div>
+    </div>
+<div class="table-box">
+    <table>
+        <tr>
+            <th>Sr No</th>
+            <th>Movie Id</th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Release Date</th>
+            <th>Genre </th>
+
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2345</td>
+            <td>The Notebook</td>
+            <td>Nick Cassavetes</td>
+            <td>2004</td>
+            <td>Drame/Romance</td>
+            <td><button><i class="fa fa-edit" ></i>Edit</button>
+            <button style="background-color: red;" ><i class="fa fa-trash" ></i>Trash</button>
+            </td>
+        </tr>
+    </table>
+</div>
+    </body>
+    </html>
+    
+-------------------------------
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+    .header{
+        width: 100%;
+        padding: 10px 30px;
+        background-color: blue;
+        }
+.header h5{
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 28px;
+    color: aliceblue;
+    }
+    .upper-btn-box{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        padding: 30px;
+        }
+.upper-btn-box.left-box{
+    width: 50%;
+    height: 100%;
+    }
+    .upper-btn-box.left-box button {
+        border: none;
+        outline: none;
+        background-color: #4286F5;
+        padding: 13px;
+        font-size: 18px;
+        font-family: verdana;
+        color: #FFF;
+        margin: 0px 10px;
+    }
+    .upper-btn-box.right-box{
+        width: 50%;
+        height: 100%;
+        
+    
+        }
+        .upper-btn-box.right-box i{
+            font-size: 25px;
+            color: #4286F5;
+            padding: 10px;
+            }
+            .upper-btn-box.right-box input{
+                width: 70%;
+                padding: 13px;
+                outline: none;
+                border: none;
+                border-bottom: 3px solid #4286F5;
+                font-weight: bold;
+                }
+                .table-box{
+                    width: 100%;
+                    padding: 30px;
+                    }
+                    .table-box table{   
+                       width: 100%;
+                      
+                       }
+                       .table-box table tr th {
+                        border-right:1px solid #ccc ;
+                        padding: 30px 0px 0px;
+                        font-family: verdana;
+                        font-family: 20px;
+                        border-bottom: 1px solid #ccc;
+                        }
+                        .table-box table tr td { 
+                            border-right:1px solid #ccc ;
+                            padding: 10px 0px 5px;     
+                            text-align: center;  
+                            font-family: verdana;
+                        border-bottom: 1px solid #ccc;
+                        } 
+                        .table-box table tr td button {
+                            width: 40%;
+                            border: none;
+                            outline: none;
+                            background-color: #4286F5;
+                            font-size: 18px;
+                            font-family: verdana;
+                            color: #FFF;
+                            padding: 5px 0px 5px;
+                            }
+                        
