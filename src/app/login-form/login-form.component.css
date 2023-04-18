@@ -1,3 +1,8 @@
+body{
+  background-image: url(https://img.freepik.com/free-vector/round-podium-stage-spotlights-rays-realistic_107791-446.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .split {
     height: 100%;
     width: 50%;
@@ -7,17 +12,17 @@
     overflow-x: hidden;
     padding-top: 20px;
   }
-  
+
   .left {
     left: 0;
     /* background-color: #111; */
   }
-  
+
   .right {
     right: 0;
     /* background-color: red; */
   }
-  
+
   .centered {
     position: absolute;
     top: 50%;
@@ -25,7 +30,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
   }
-  
+
   .centered img {
     width: 100%;
     border-radius: 50%;

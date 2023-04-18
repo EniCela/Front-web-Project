@@ -32,8 +32,9 @@ export class LoginFormComponent {
     acceptTerms: new FormControl(false),
 });
 submitted = false;
+about: string|any[]|null|undefined;
 constructor(
-  private formBuilder: FormBuilder, 
+  private formBuilder: FormBuilder,
   private myService: MyService,
   private http:HttpClient
   ) {}
@@ -73,15 +74,15 @@ onSubmit(){
     return;
   }
 
-  
+
   //console.log(JSON.stringify(this.form.value, null, 2));
   //var password = CryptoJS.SHA256(this.form.value.password).toString();
   //return this.myService.submitLoginData({email : this.form.value.email, password: password});
 }
  onsubmit(){
-  
+
   console.log(this.form.value)
-  //this.http.post(url:'http://localhost:8000/api',data).subscribe
+  // this.http.post(URL:'http://localhost:8000/api',data).subscribe
 }
 
 }

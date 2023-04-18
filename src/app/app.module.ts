@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminnComponent } from './adminn/adminn.component';
 import { MoviessComponent } from './moviess/moviess.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NavbarComponent } from './homepage/navbar/navbar.component';
+import { FooterComponent } from './homepage/footer/footer.component';
+import { CarouselComponent } from './homepage/carousel/carousel.component';
 
 
 @NgModule({
@@ -20,6 +24,10 @@ import { MoviessComponent } from './moviess/moviess.component';
     ProfileComponent,
     AdminnComponent,
     MoviessComponent,
+    HomepageComponent,
+    NavbarComponent,
+    FooterComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
