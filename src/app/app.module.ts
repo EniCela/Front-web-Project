@@ -8,6 +8,8 @@ import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminnComponent } from './adminn/adminn.component';
+import { MoviessComponent } from './moviess/moviess.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterFormComponent,
     LoginFormComponent,
     ProfileComponent,
+    AdminnComponent,
+    MoviessComponent,
   ],
   imports: [
     BrowserModule,

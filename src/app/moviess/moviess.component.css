@@ -1,55 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8"/>
-        <meta http-equiv="X-UA-Compitable " content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale= 1.0"/>
-        <link href="index.css"/>
-        <title>Add Movie </title>
-    </head>  
-    <body>
-        <div class="header">
-            <h5> Movie</h5>
-        </div>
-        <div class="upper-btn-box">
-            <div class="btn-left-box">
-                <button><i class="fa fa-plus"></i>Add Movie </button>
-                <button style="background-color: red;"><i class="fa fa-clear"></i>Clear Movie</button>
-            </div>
-        <div class="btn-right-box"></div>
-        <i class="fa fa-search "></i>
-        <input type="text" id="movId" placeholder="Type here">
-        <button style="background-color: blue;">Search </button>
-        </div>
-    </div>
-<div class="table-box">
-    <table>
-        <tr>
-            <th>Sr No</th>
-            <th>Movie Id</th>
-            <th>Title</th>
-            <th>Director</th>
-            <th>Release Date</th>
-            <th>Genre </th>
-
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2345</td>
-            <td>The Notebook</td>
-            <td>Nick Cassavetes</td>
-            <td>2004</td>
-            <td>Drame/Romance</td>
-            <td><button><i class="fa fa-edit" ></i>Edit</button>
-            <button style="background-color: red;" ><i class="fa fa-trash" ></i>Trash</button>
-            </td>
-        </tr>
-    </table>
-</div>
-    </body>
-    </html>
-    
--------------------------------
 *{
     padding: 0;
     margin: 0;
@@ -137,4 +85,3 @@
                             color: #FFF;
                             padding: 5px 0px 5px;
                             }
-                        
