@@ -1,17 +1,25 @@
 import { Component } from '@angular/core';
-import { FormGroup ,ReactiveFormsModule ,FormBuilder ,Validators, FormControl, AbstractControl, NgForm} from '@angular/forms';
+import {
+  FormGroup,
+  ReactiveFormsModule,
+  FormBuilder,
+  Validators,
+  FormControl,
+  AbstractControl,
+  NgForm,
+} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
 import Validation from './validation';
+import Swal from 'sweetalert2';
 import { MyService } from '../myService';
 import * as CryptoJS from 'crypto-js';
 import { AuthencationService } from '../services/authencation.service';
 
-
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.css']
+  styleUrls: ['./register-form.component.css'],
 })
 export class RegisterFormComponent {
   form: FormGroup = new FormGroup({
@@ -21,15 +29,19 @@ export class RegisterFormComponent {
     password: new FormControl(''),
     //confirmPassword: new FormControl(''),
     //acceptTerms: new FormControl(false),
-});
+  });
 
-submitted = false;
+  submitted = false;
 
-constructor(private formBuilder: FormBuilder, private myService: MyService, private http:HttpClient , private auth:AuthencationService) {}
-ngOnInit(): void {
-
-  this.form = this.formBuilder.group(
-    {
+  constructor(
+    private formBuilder: FormBuilder,
+    private myService: MyService,
+    private http: HttpClient,
+    private auth: AuthencationService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
       username: [
         '',
         [
@@ -38,7 +50,10 @@ ngOnInit(): void {
           Validators.maxLength(20),
         ],
       ],
-      email : new FormControl('',[ Validators.minLength(5), Validators.required ]),
+      email: new FormControl('', [
+        Validators.minLength(5),
+        Validators.required,
+      ]),
       // email: ['', [Validators.required, Validators.email]],
       password: [
         '',
@@ -51,53 +66,69 @@ ngOnInit(): void {
           Validators.pattern(/\d/),
         ],
       ],
-    },
-
-  );
-
-}
-get f(): { [key: string]: AbstractControl } {
-  return this.form.controls;
-}
-
-onSubmit(){
-  if(this.form.value.email == "" && this.form.value.password == ""){
-    return ;
+    });
   }
-  this.submitted = true;
-
-  if (this.form.invalid) {
-    return;
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
   }
 
-  //console.log(JSON.stringify(this.form.value, null, 2));
-  //var password = CryptoJS.SHA256(this.form.value.password).toString();
-  //return this.myService.submitRegisterData({email : this.form.value.email, password: password});
+  onSubmit() {
+    if (this.form.value.email == '' && this.form.value.password == '') {
+      return;
+    }
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    //console.log(JSON.stringify(this.form.value, null, 2));
+    //var password = CryptoJS.SHA256(this.form.value.password).toString();
+    //return this.myService.submitRegisterData({email : this.form.value.email, password: password});
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.form.reset();
+  }
+  postId: any;
+  data: any;
+  async onsubmit(form: FormGroup) {
+    // console.log(this.form.value);
+
+    const name = form.value.name;
+    const email = form.value.email;
+    const password = form.value.password;
+
+    //this.auth.register(name,email,password,).subscribe((res)=>{
+    // console.log(res);
+    //  },
+    //  (err)=>{
+    //   console.log(err);
+    //  })
+    await this.http
+      .post('http://127.0.0.1:8000/api/register', form.value)
+      .subscribe((response: any) => {
+        if (response.status === 200) {
+          console.log(response.token);
+          Swal.fire({
+            icon: 'success',
+            title: response.message,
+            showConfirmButton: false,
+            timer: 3000,
+          }).then((result) => this.router.navigate(['/']));
+          localStorage.setItem('dataSource', response.token);
+
+        }
+        else if(response.status === 400){
+          Swal.fire({
+            icon: 'error',
+            title: response.message,
+            showConfirmButton: false,
+            timer: 3000,
+          })
+        }
+      }
+    );
+  }
 }
-
-onReset(): void {
-  this.submitted = false;
-  this.form.reset();
-}
-postId:any
-data:any
-onsubmit(form:FormGroup){
-  console.log(this.form.value)
-  
-  const name =form.value.name;
-  const email=form.value.email;
-  const password =form.value.password;
-
-   this.auth.register(name,email,password,).subscribe((res)=>{
-    console.log(res);
-   },
-   (err)=>{
-    console.log(err);
-   })
-}
-
-
-}
-
-
-

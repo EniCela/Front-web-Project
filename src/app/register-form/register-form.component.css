@@ -9,6 +9,9 @@
     background-color: blue;
     width: 33%;
 } */
+.photo{
+  width: 500px;
+}
 .centered {
     position: absolute;
     top: 50%;
