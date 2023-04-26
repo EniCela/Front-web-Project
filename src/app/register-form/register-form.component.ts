@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormGroup,
-  ReactiveFormsModule,
-  FormBuilder,
-  Validators,
-  FormControl,
-  AbstractControl,
-  NgForm,
-} from '@angular/forms';
+import {FormGroup,ReactiveFormsModule,FormBuilder,Validators,FormControl,AbstractControl,NgForm,}from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Validation from './validation';
@@ -81,10 +73,6 @@ export class RegisterFormComponent {
     if (this.form.invalid) {
       return;
     }
-
-    //console.log(JSON.stringify(this.form.value, null, 2));
-    //var password = CryptoJS.SHA256(this.form.value.password).toString();
-    //return this.myService.submitRegisterData({email : this.form.value.email, password: password});
   }
 
   onReset(): void {
@@ -94,31 +82,22 @@ export class RegisterFormComponent {
   postId: any;
   data: any;
   async onsubmit(form: FormGroup) {
-    // console.log(this.form.value);
-
     const name = form.value.name;
     const email = form.value.email;
     const password = form.value.password;
 
-    //this.auth.register(name,email,password,).subscribe((res)=>{
-    // console.log(res);
-    //  },
-    //  (err)=>{
-    //   console.log(err);
-    //  })
     await this.http
       .post('http://127.0.0.1:8000/api/register', form.value)
       .subscribe((response: any) => {
         if (response.status === 200) {
           console.log(response.token);
+          localStorage.setItem('token-for-user', response.token);
           Swal.fire({
             icon: 'success',
             title: response.message,
             showConfirmButton: false,
             timer: 3000,
           }).then((result) => this.router.navigate(['/']));
-          localStorage.setItem('dataSource', response.token);
-
         }
         else if(response.status === 400){
           Swal.fire({

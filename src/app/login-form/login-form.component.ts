@@ -65,22 +65,6 @@ ngOnInit(): void{
 get f(): { [key: string]: AbstractControl } {
   return this.form.controls;
 }
-
-// onSubmit(){
-//   if(this.form.value.email == "" && this.form.value.password == ""){
-//     return ;
-//   }
-//   this.submitted = true;
-
-//   if (this.form.invalid) {
-//     return;
-//   }
-
-
-//   //console.log(JSON.stringify(this.form.value, null, 2));
-//   //var password = CryptoJS.SHA256(this.form.value.password).toString();
-//   //return this.myService.submitLoginData({email : this.form.value.email, password: password});
-// }
 async onsubmit(form:FormGroup){
   console.log(this.form.value)
 
@@ -88,22 +72,18 @@ async onsubmit(form:FormGroup){
   const email=form.value.email;
   const password =form.value.password;
 
-   //this.auth.register(name,email,password,).subscribe((res)=>{
-    // console.log(res);
-  //  },
-  //  (err)=>{
-  //   console.log(err);
-  //  })
-   await this.http.post('http://127.0.0.1:8000/api/register', form.value).subscribe(form.value)
-//     	           .then(res => res.json().data)
-//     	            .catch(this.handleError);
+
+   this.http.post('http://127.0.0.1:8000/api/register', form.value).subscribe((response :any)=>{
+    localStorage.setItem('token-for-user', response.token);
+   })
 Swal.fire({
   icon: 'success',
-  title: 'Ju u loguat me sukses!',
+title: 'Ju u loguat me sukses!',
   showConfirmButton: false,
   timer: 3000
 }).then((result) =>
   this.router.navigate(['/'])
+
 )
 
 }
