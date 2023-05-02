@@ -32,7 +32,7 @@ import { CarouselComponent } from './homepage/carousel/carousel.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,   
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
   ],

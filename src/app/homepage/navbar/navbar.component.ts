@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,19 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  constructor(private router:Router){}
   loggin:boolean=false;
 
   ngOnInit(): void {
-   this.logout();
-//  if (localStorage.getItem("token-for-user") == null){
-//   this.loggin == true
-//     }
+    // this.login();
+    // this.logout();
+  //  this.logout();
+    //   if(localStorage.getItem("token-for-user") == null){
+    //     this.loggin === true
+    //   }
+    // }
+
+  // logout(){
+  //   if (localStorage.getItem("token-for-user") == null){
+  //   this.loggin == true
+  //   }
+  // }
+
+}
+
+  login(){
+  this.loggin === true
+  console.log(this.loggin)
   }
 
   logout(){
-    if (localStorage.getItem("token-for-user") == null){
-    this.loggin == true
-    }
+    this.loggin ===false
+    console.log(!this.loggin);
   }
-
 }
