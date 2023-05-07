@@ -16,6 +16,7 @@ import { FooterComponent } from './homepage/footer/footer.component';
 import { CarouselComponent } from './homepage/carousel/carousel.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { CarouselComponent } from './homepage/carousel/carousel.component';
     NavbarComponent,
     FooterComponent,
     CarouselComponent,
+
   ],
   imports: [
     BrowserModule,
