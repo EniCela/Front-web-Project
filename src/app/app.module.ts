@@ -14,6 +14,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './homepage/navbar/navbar.component';
 import { FooterComponent } from './homepage/footer/footer.component';
 import { CarouselComponent } from './homepage/carousel/carousel.component';
+import { AddmovieComponent } from './addmovie/addmovie.component';
+import { AddmovComponent } from './addmov/addmov.component';
+import { ShowusersComponent } from './showusers/showusers.component';
 
 
 @NgModule({
@@ -28,6 +31,9 @@ import { CarouselComponent } from './homepage/carousel/carousel.component';
     NavbarComponent,
     FooterComponent,
     CarouselComponent,
+    AddmovieComponent,
+    AddmovComponent,
+    ShowusersComponent,
   ],
   imports: [
     BrowserModule,
