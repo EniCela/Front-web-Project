@@ -14,6 +14,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './homepage/navbar/navbar.component';
 import { FooterComponent } from './homepage/footer/footer.component';
 import { CarouselComponent } from './homepage/carousel/carousel.component';
+import { NewsComponent } from './news/news.component';
+import { AddNewsComponent } from './add-news/add-news.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { CarouselComponent } from './homepage/carousel/carousel.component';
     NavbarComponent,
     FooterComponent,
     CarouselComponent,
+    NewsComponent,
+    AddNewsComponent
   ],
   imports: [
     BrowserModule,

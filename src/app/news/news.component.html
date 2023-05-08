@@ -1,49 +1,36 @@
-<main>
+
+<main class="main">
   <h2>Lajmet</h2>
-  <table>
+  <a routerLink="/shtolajme"><button class="shto">shto</button></a>
+
+  <table class="table">
     <thead>
-      <tr>
-                  <th>Id Lajmi</th>
-        <th>Titulli</th>
-        <th>Përmbajtja</th>
-        <th>Data</th>
-        <th>Opsionet</th>
+     <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">description</th>
+        <th scope="col">Time</th>
+        <th scope="col">Option</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-                  <td>1</td>
-        <td>Titulli i lajmit 1</td>
-        <td>Permbajtja e lajmit 1</td>
-        <td>26/04/2023</td>
+        <tr *ngFor="let NewsItem of NewsArray">
+
+        <th scope="row">{{NewsItem.id  }}</th>
+        <td>{{NewsItem.title  | uppercase}}</td>
+        <td>{{NewsItem.descripton }}</td>
+        <td>{{NewsItem.updated_at}}</td>
+
+
         <td>
-          <button class="edito">Edito</button>
-          <button class="fshi">Fshi</button>
-        </td>
-      </tr>
-      <tr>
-                  <td>2</td>
-        <td>Titulli i lajmit 2</td>
-        <td>Permbajtja e lajmit 2</td>
-        <td>26/04/2023</td>
-        <td>
-          <button class="edito">Edito</button>
-          <button class="fshi">Fshi</button>
-        </td>
-      </tr>
-      <tr>
-                  <td>3</td>
-        <td>Titulli i lajmit 3</td>
-        <td>Permbajtja e lajmit 3</td>
-        <td>26/04/2023</td>
-        <td>
-          <button class="edito">Edito</button>
-          <button class="fshi">Fshi</button>
+          <button type="button" class="btn btn-success"  (click)="setUpdate(NewsItem)" >Edit</button>
+
+          <button type="button" class="btn btn-danger">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
-
-  <button class="shto">Shto lajm</button>
 </main>
 

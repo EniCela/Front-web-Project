@@ -1,5 +1,10 @@
+.main{
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+}
 header {
-	background-color: #333;
+	background-color: #f8f8f8;
 	color: #fff;
 	padding: 20px;
 	text-align: center;
@@ -18,7 +23,7 @@ th, td {
 }
 
 th {
-	background-color: #333;
+	background-color: #aca4a4;
 	color: #fff;
 }
 
@@ -28,7 +33,7 @@ tr:nth-child(even) {
 
 
 button {
-	background-color: #4CAF50;
+	background-color: #5065ad;
 	color: #fff;
 	padding: 10px 20px;
 	border: none;
@@ -56,7 +61,7 @@ button {
 
 
 footer {
-	background-color: #333;
+	background-color: #f3f2f2;
 	color: #fff;
 	padding: 10px;
 	text-align: center;
