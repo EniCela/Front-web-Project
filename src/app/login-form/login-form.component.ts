@@ -82,7 +82,7 @@ title: 'Ju u loguat me sukses!',
   showConfirmButton: false,
   timer: 3000
 }).then((result) =>
-  this.router.navigate(['/'])
+  this.router.navigate(['/admindashboard'])
 
 )
 

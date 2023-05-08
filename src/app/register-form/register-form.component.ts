@@ -97,7 +97,7 @@ export class RegisterFormComponent {
             title: response.message,
             showConfirmButton: false,
             timer: 3000,
-          }).then((result) => this.router.navigate(['/']));
+          }).then((result) => this.router.navigate(['/login']));
         }
         else if(response.status === 400){
           Swal.fire({

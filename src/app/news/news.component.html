@@ -25,9 +25,11 @@
 
 
         <td>
-          <button type="button" class="btn btn-success"  (click)="setUpdate(NewsItem)" >Edit</button>
+          <a routerLink="/edit/{{NewsItem.id}}"><button class="edit">edit</button></a>
 
-          <button type="button" class="btn btn-danger">Delete</button>
+          <!-- <button type="button" class="btn btn-success"  routerLink="/edit/{{NewsItem.id}}" >Edit</button> -->
+
+          <button type="button" class="btn btn-danger" (click)="setDelete(NewsItem)">Delete</button>
         </td>
       </tr>
     </tbody>

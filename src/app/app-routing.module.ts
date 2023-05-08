@@ -6,14 +6,18 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { NewsComponent } from './news/news.component';
 import { AdminnComponent } from './adminn/adminn.component';
+import { ShowusersComponent } from './showusers/showusers.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 const routes: Routes = [
-  {path:"" , component:AdminnComponent},
+  {path:"" , component:HomepageComponent},
   {path:"register", component:RegisterFormComponent},
   {path:"login",component:LoginFormComponent},
   {path:"shtolajme",component:AddNewsComponent},
-  {path:"news",component:NewsComponent}
-
+  {path:"news",component:NewsComponent},
+  {path:"showuser",component:ShowusersComponent},
+  {path:"edit/:id", component:EdituserComponent},
+  {path:"admindashboard",component:AdminnComponent}
 ];
 
 @NgModule({

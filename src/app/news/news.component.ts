@@ -48,14 +48,15 @@ export class NewsComponent implements OnInit {
    this.currentnewsID = data.id;
   }
 
+  // edit----------------------------------------
   // UpdateRecords()
   // {
   //   let bodyData = {
-  //     "title" : this..title,
+  //     "title" : this.form2.value.title,
   //     "descripton" : this.form2.value.description,
   //   };
 
-  //   this.http.put("http://127.0.0.1:8000/api/update"+ "/"+ this.currentEmployeeID,bodyData).subscribe((resultData: any)=>
+  //   this.http.put("http://127.0.0.1:8000/api/update"+ "/"+ this.currentnewsID,bodyData).subscribe((resultData: any)=>
   //   {
   //       console.log(resultData);
   //       alert("Employee Registered Updateddd")
@@ -66,5 +67,32 @@ export class NewsComponent implements OnInit {
   //   });
   // }
 
+  //  save()
+  // {
+  //   if(this.currentEmployeeID == '')
+  //   {
+  //       this.register();
+  //   }
+  //     else
+  //     {
+  //      this.UpdateRecords();
+  //     }
+
+  // }
+  //--------------------------------------------
+
+  setDelete(data: any)
+  {
+
+
+    this.http.delete("http://127.0.0.1:8000/api/delete"+ "/"+ data.id).subscribe((resultData: any)=>
+    {
+        console.log(resultData);
+        alert("Employee Deletedddd")
+        this.getAllNews();
+
+    });
+
+  }
 }
 

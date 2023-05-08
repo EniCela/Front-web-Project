@@ -16,6 +16,8 @@ import { FooterComponent } from './homepage/footer/footer.component';
 import { CarouselComponent } from './homepage/carousel/carousel.component';
 import { NewsComponent } from './news/news.component';
 import { AddNewsComponent } from './add-news/add-news.component';
+import { EdituserComponent } from './edituser/edituser.component';
+import { ShowusersComponent } from './showusers/showusers.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { AddNewsComponent } from './add-news/add-news.component';
     FooterComponent,
     CarouselComponent,
     NewsComponent,
-    AddNewsComponent
+    AddNewsComponent,
+    EdituserComponent,
+    ShowusersComponent
   ],
   imports: [
     BrowserModule,
