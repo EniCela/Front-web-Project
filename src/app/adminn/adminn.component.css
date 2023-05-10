@@ -62,6 +62,7 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
 }
 .side-menu li {
     font-size: 24px;

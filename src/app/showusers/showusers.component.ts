@@ -31,4 +31,17 @@ export class ShowusersComponent implements OnInit {
         this.UserArray = resultData;
     });
   }
+
+  setDelete(data: any)
+  {
+    this.http.delete("http://127.0.0.1:8000/api/userdelete"+ "/"+ data.id).subscribe((resultData: any)=>
+    {
+        console.log(resultData);
+        alert("Employee Deletedddd")
+        this.getAllUser();
+
+    });
+
+  }
 }
+

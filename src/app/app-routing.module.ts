@@ -17,7 +17,8 @@ const routes: Routes = [
   {path:"news",component:NewsComponent},
   {path:"showuser",component:ShowusersComponent},
   {path:"edit/:id", component:EdituserComponent},
-  {path:"admindashboard",component:AdminnComponent}
+  {path:"admindashboard",component:AdminnComponent},
+  {path:"movies",component:HomepageComponent}
 ];
 
 @NgModule({

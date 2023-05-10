@@ -1,25 +1,30 @@
-<html>
-  <body class="user">
-    <h2>Lista e përdoruesve</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Email</th>
-          <th>Username</th>
-          <th>Data e regjistrimit</th>
-        </tr>
-      </thead>
-      <tbody>
+<main class="main">
+  <h2>User</h2>
+  <table class="table">
+    <thead>
+     <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Time</th>
+        <th scope="col">Option</th>
+      </tr>
+    </thead>
+    <tbody>
         <tr *ngFor="let UserItem of UserArray">
-          <td>{{UserItem.id  }}</td>
-          <td>{{UserItem.email}}</td>
-          <td>{{UserItem.username }}</td>
-          <td>{{UserItem.created_at  }}</td>
-        </tr>
 
-      </tbody>
-    </table>
+        <th scope="row">{{UserItem.id  }}</th>
+        <td>{{UserItem.email}}</td>
+        <td>{{UserItem.username }}</td>
+        <td>{{UserItem.created_at  }}</td>
+        <button type="button" class="btn btn-danger" (click)="setDelete(UserItem)">Delete</button>
+        <td>
+          <!-- <button type="button" class="btn btn-success"  routerLink="/edit/{{NewsItem.id}}" >Edit</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
 
-  </body>
-</html>
