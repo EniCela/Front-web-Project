@@ -25,7 +25,7 @@
 
 
         <td>
-          <a routerLink="/edit/{{NewsItem.id}}"><button class="edit">edit</button></a>
+          <a routerLink="/edit/{{NewsItem.id}}"><button class="edit" (click)="setUpdate(NewsItem)">edit</button></a>
 
           <!-- <button type="button" class="btn btn-success"  routerLink="/edit/{{NewsItem.id}}" >Edit</button> -->
 

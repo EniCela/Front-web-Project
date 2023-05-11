@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  FormGroup ,FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, Routes } from '@angular/router';
-
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-edituser',
@@ -14,46 +14,58 @@ export class EdituserComponent implements OnInit {
   title: any;
   description: any;
   currentnewsID: any;
+  databyid:any;
 
   constructor(
     private http:HttpClient,
-    private router:Router
-
+    private router:Router,
+    private activate: ActivatedRoute,
   ){}
 
   ngOnInit(): void {
 
+    this.getallNews(this.activate.snapshot.paramMap.get('id'))
+
+
   }
 
-  form2:FormGroup =new FormGroup({
+  //marja e te dhenave nga form2
+  form2=new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
   })
 
+  //marim te dhenat nga item me id e klikuar
+async getallNews(id:any){
+  this.databyid= await this.http.get("http://127.0.0.1:8000/api/news"+"/"+ id).toPromise();
+  console.log(this.databyid);
+  this.form2=new FormGroup({
+    title: new FormControl(this.databyid['title']),
+    description: new FormControl(this.databyid['descripton']),
+  })
 
-  // async onsubmit(){
-  //   console.log(this.form2.value)
+}
 
-  //   const title =this.form2.value.title;
-  //   const description=this.form2.value.description;
+//  async getAllNews()
+//   {
+//    this.http.get("http://127.0.0.1:8000/api/news")
+//      .subscribe((resultData: any) => {
+//        this.editArray = resultData;
+//        let id = this.activate.snapshot.paramMap.get('id');
+//        console.log(id);
+//        console.log(this.editArray);
+//        this.editArray.forEach((obj: any) => {
+//        this.object = this.editArray.find((items: any) => items.id === id);
+//        console.log(this.object)
 
+//        });
+//       //  console.log(object)
+//      });
+//   }
 
-  //   //  this.http.post('http://127.0.0.1:8000/api/register', form.value).subscribe((response :any)=>{
-  //   //   localStorage.setItem('token-for-user', response.token);
-  //   //  })
-  //   }
+// regjisterojm te dhenat
 
-  getAllNews()
-  {
-    this.http.get("http://127.0.0.1:8000/api/news")
-    .subscribe((resultData: any)=>
-    {
-        console.log(resultData);
-        this.editArray = resultData;
-    });
-  }
-
-    register()
+  register()
   {
 
     let bodyData = {
@@ -63,12 +75,9 @@ export class EdituserComponent implements OnInit {
 
     this.http.post("http://127.0.0.1:8000/api/save",bodyData).subscribe((resultData: any)=>
     {
-        console.log(resultData);
+
         alert("Employee Registered Successfully")
-        // this.getAllEmployee();
-        // this.title = '';
-        // this.address = '';
-        // this.mobile  = 0;
+
     });
   }
   setUpdate(data: any)
@@ -80,28 +89,27 @@ export class EdituserComponent implements OnInit {
 
   UpdateRecords()
   {
-    let bodyData = {
-      "title" : this.form2.value.title,
-      "descripton" : this.form2.value.description,
-    };
+      let bodyData = {
+        "title" : this.form2.value.title,
+        "descripton" : this.form2.value.description,
+      };
 
-    this.http.put("http://127.0.0.1:8000/api/update"+ "/"+ this.currentnewsID,bodyData).subscribe((resultData: any)=>
+    this.http.put("http://127.0.0.1:8000/api/update"+ "/"+ this.activate.snapshot.paramMap.get('id'),bodyData).subscribe((resultData: any)=>
 
     {
-        console.log(resultData);
+        console.log(bodyData);
         alert("Employee Registered Updateddd")
         this.router.navigate(['/news'])
 
-        this.getAllNews();
+        this.getallNews(this.activate.snapshot.paramMap.get('id'));
          this.title = '';
         this.description = '';
-        // this.mobile  = 0;
+
     });
+
   }
 
-
-  save()
-  {
+  save(){
     if(this.currentnewsID == '')
     {
         this.register();

@@ -18,17 +18,17 @@ export class AddNewsComponent {
     description: new FormControl(''),
   })
 
-  async onsubmit(){
-    console.log(this.form2.value)
+  // async onsubmit(){
+  //   console.log(this.form2.value)
 
-    const title =this.form2.value.title;
-    const description=this.form2.value.description;
+  //   const title =this.form2.value.title;
+  //   const description=this.form2.value.description;
 
 
-    //  this.http.post('http://127.0.0.1:8000/api/register', form.value).subscribe((response :any)=>{
-    //   localStorage.setItem('token-for-user', response.token);
-    //  })
-    }
+  //   //  this.http.post('http://127.0.0.1:8000/api/register', form.value).subscribe((response :any)=>{
+  //   //   localStorage.setItem('token-for-user', response.token);
+  //   //  })
+  //   }
 
     register()
   {

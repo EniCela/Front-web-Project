@@ -37,8 +37,8 @@ export class NewsComponent implements OnInit {
     .subscribe((resultData: any)=>
     {
         this.isResultLoaded = true;
-        console.log(resultData);
         this.NewsArray = resultData;
+        console.log(this.NewsArray)
     });
   }
   setUpdate(data: any)
@@ -48,43 +48,55 @@ export class NewsComponent implements OnInit {
    this.currentnewsID = data.id;
   }
 
-  // edit----------------------------------------
-  // UpdateRecords()
-  // {
-  //   let bodyData = {
-  //     "title" : this.form2.value.title,
-  //     "descripton" : this.form2.value.description,
-  //   };
 
-  //   this.http.put("http://127.0.0.1:8000/api/update"+ "/"+ this.currentnewsID,bodyData).subscribe((resultData: any)=>
-  //   {
-  //       console.log(resultData);
-  //       alert("Employee Registered Updateddd")
-  //       this.getAllEmployee();
-  //       this.name = '';
-  //       this.address = '';
-  //       this.mobile  = 0;
-  //   });
-  // }
+  UpdateRecords()
+  {
+    let bodyData = {
+      "title" : this.title,
+      "descripton" : this.description,
+    };
 
-  //  save()
-  // {
-  //   if(this.currentEmployeeID == '')
-  //   {
-  //       this.register();
-  //   }
-  //     else
-  //     {
-  //      this.UpdateRecords();
-  //     }
+    this.http.put("http://127.0.0.1:8000/api/update"+ "/"+ this.currentnewsID,bodyData).subscribe((resultData: any)=>
+    {
+        console.log(resultData);
+        alert("Employee Registered Updateddd")
+        this.getAllNews();
+        this.title = '';
+        this.description = '';
+    });
+  }
+  register()
+  {
 
-  // }
-  //--------------------------------------------
+    let bodyData = {
+      "title" : this.title,
+      "descripton" : this.description,
+    };
+
+    this.http.post("http://127.0.0.1:8000/api/save",bodyData).subscribe((resultData: any)=>
+    {
+        console.log(resultData);
+        alert("Employee Registered Successfully")
+        this.getAllNews();
+        this.title = '';
+        this.description = '';
+    });
+  }
+   save()
+  {
+    if(this.currentnewsID == '')
+    {
+        this.register();
+    }
+      else
+      {
+       this.UpdateRecords();
+      }
+
+  }
 
   setDelete(data: any)
   {
-
-
     this.http.delete("http://127.0.0.1:8000/api/delete"+ "/"+ data.id).subscribe((resultData: any)=>
     {
         console.log(resultData);
