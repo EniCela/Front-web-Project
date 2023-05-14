@@ -1,44 +1,81 @@
-<!DOCTYPE html>
-<html>
+<head>
+  <title>Add Movie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
 <body>
-    <div class="header">
-        <h5> Movie</h5>
-    </div>
-    <div class="upper-btn-box upper">
-        <div class="btn-left-box">
-            <button class="add"><i class="fa fa-plus"></i>Add Movie </button>
-            <button style="background-color: red;" class="clear"><i class="fa fa-clear"></i>Clear Movie</button>
-        </div>
-        <div class="btn-right-box search">
-            <input type="text" id="movId" placeholder="Type here">
-            <i class="fa fa-search  "></i>
-        </div>
-    </div>
-    <div class="table-box">
-        <table>
-            <tr>
-                <th>Sr No</th>
-                <th>Movie Id</th>
-                <th>Title</th>
-                <th>Director</th>
-                <th>Release Date</th>
-                <th>Genre</th>
 
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2345</td>
-                <td>The Notebook</td>
-                <td>Nick Cassavetes</td>
-                <td>2004</td>
-                <td>Drame/Romance</td>
-                <td>
-                    <button><i class="fa fa-edit"></i>Edit</button>
-                    <button style="background-color: red;"><i class="fa fa-trash"></i>Trash</button>
-                </td>
-            </tr>
-        </table>
-    </div>
+  <h1>Add Movie</h1>
+  <form [formGroup]="form3" action="/submit_movie" method="post" (ngSubmit)="register()" enctype="multipart/form-data">
+    <label for="titulli">Title:</label>
+    <input type="text"   formControlName="titulli" id="titulli" name="titulli" required>
+
+    <label for="regjizori">Director:</label>
+    <input type="text" id="regjizori" formControlName="regjizori" name="regjizori" required>
+
+    <label for="viti">Year:</label>
+    <input type="number" id="viti" formControlName="viti"  name="viti" required>
+
+    <label for="cmimi">Price:</label>
+    <input type="number" id="cmimi"  formControlName="cmimi" name="cmimi" required>
+
+    <label for="koha">Time:</label>
+    <input type="number" id="koha" formControlName="koha" name="koha" required>
+
+    <label for="pershkrimi">Description:</label>
+    <input type="text" id="pershkrimi"  formControlName="pershkrimi" name="pershkrimi" required>
+
+    <label for="video">video:</label>
+    <input type="file"  formControlName="video" id="video" name="video" (change)="onFileSelected($event)" required>
+
+    <input type="submit"  value="Submit">
+  </form>
 </body>
-
-</html>

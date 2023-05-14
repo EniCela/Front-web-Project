@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {  FormGroup ,FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-add-news',
@@ -10,9 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class AddNewsComponent {
   constructor(
     private http:HttpClient,
-
-  ){
-  }
+    private router:Router,
+  ){}
   form2:FormGroup =new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
@@ -42,6 +42,8 @@ export class AddNewsComponent {
     {
         console.log(resultData);
         alert("Employee Registered Successfully")
+        this.router.navigate(['/news'])
+
         // this.getAllEmployee();
         // this.title = '';
         // this.address = '';

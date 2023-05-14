@@ -18,6 +18,8 @@ import { NewsComponent } from './news/news.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { ShowusersComponent } from './showusers/showusers.component';
+import { Ng2SearchPipeModule , Ng2SearchPipe } from 'ng2-search-filter';
+import { AddmovieComponent } from './addmovie/addmovie.component';
 
 
 @NgModule({
@@ -35,14 +37,17 @@ import { ShowusersComponent } from './showusers/showusers.component';
     NewsComponent,
     AddNewsComponent,
     EdituserComponent,
-    ShowusersComponent
+    ShowusersComponent,
+    AddmovieComponent
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

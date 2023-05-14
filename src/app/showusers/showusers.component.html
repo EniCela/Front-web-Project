@@ -1,5 +1,9 @@
 <main class="main">
   <h2>User</h2>
+  <div class="search">
+    <!-- ********search************** -->
+    <input class="searchmovie" type="text" name="search" [(ngModel)]="filterstring"  placeholder="Search News by email and username">
+</div>
   <table class="table">
     <thead>
      <h1 *ngIf="!isResultLoaded">Loading.................</h1>
@@ -13,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let UserItem of UserArray">
+        <tr *ngFor="let UserItem of UserArray | filter:filterstring">
 
         <th scope="row">{{UserItem.id  }}</th>
         <td>{{UserItem.email}}</td>

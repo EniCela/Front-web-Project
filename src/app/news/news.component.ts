@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+
 
 
 @Component({
@@ -16,13 +18,14 @@ export class NewsComponent implements OnInit {
   title: string ="";
   description: string ="";
   currentnewsID: any;
+  filterstring:any;
 
 
   constructor(
-    private http:HttpClient
-  ){
-    this.getAllNews();
-  }
+    private http:HttpClient,
+    private router:Router,
+  ){}
+
   ngOnInit(): void {
 
   this.getAllNews();
@@ -77,7 +80,10 @@ export class NewsComponent implements OnInit {
     {
         console.log(resultData);
         alert("Employee Registered Successfully")
+        // this.router.navigate(['/news'])
         this.getAllNews();
+        this.router.navigate(['/news'])
+
         this.title = '';
         this.description = '';
     });
@@ -87,10 +93,15 @@ export class NewsComponent implements OnInit {
     if(this.currentnewsID == '')
     {
         this.register();
+        this.router.navigate(['/news'])
+
+
     }
       else
       {
        this.UpdateRecords();
+       this.router.navigate(['/news'])
+
       }
 
   }

@@ -11,6 +11,7 @@ export class ShowusersComponent implements OnInit {
 
   UserArray : any[] = [];
   isResultLoaded = false;
+  filterstring:any;
 
   constructor(
     private http:HttpClient

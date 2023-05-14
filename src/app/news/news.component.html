@@ -2,6 +2,10 @@
 <main class="main">
   <h2>Lajmet</h2>
   <a routerLink="/shtolajme"><button class="shto">shto</button></a>
+  <div class="search">
+    <!-- ********search************** -->
+    <input class="searchmovie" type="text" name="search" [(ngModel)]="filterstring"  placeholder="Search News by title and description">
+</div>
 
   <table class="table">
     <thead>
@@ -16,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let NewsItem of NewsArray">
+        <tr *ngFor="let NewsItem of NewsArray | filter:filterstring">
 
         <th scope="row">{{NewsItem.id  }}</th>
         <td>{{NewsItem.title  | uppercase}}</td>
