@@ -23,11 +23,25 @@ export class AddmovieComponent  implements OnInit{
     koha: new FormControl(''),
     pershkrimi: new FormControl(''),
     video: new FormControl(''),
+    // foto: new FormControl(''),
+
   })
 
-  // eni(){
-  //   console.log(this.form3.value)
-  //  }
+  eni(){
+    let bodyData = {
+      "titulli" : this.form3.value.titulli,
+      "regjizori" : this.form3.value.regjizori,
+      "viti" : this.form3.value.viti,
+      "cmimi" : this.form3.value.cmimi,
+      "koha" : this.form3.value.koha,
+      "pershkrimi" : this.form3.value.pershkrimi,
+      "video" : this.form3.value.video
+      // "foto" : this.form3.value.foto.File,
+
+
+    };
+    console.log(bodyData);
+   }
 
   ngOnInit(): void {
 
@@ -35,9 +49,9 @@ export class AddmovieComponent  implements OnInit{
 
   selectedFile:any=File;
 
-  onFileSelected(event: any) {
-  this.selectedFile = event.target.files[0];
-}
+//   onFileSelected(event: any) {
+//   this.selectedFile = event.target.files[0];
+// }
   register()
   {
 
@@ -48,20 +62,19 @@ export class AddmovieComponent  implements OnInit{
       "cmimi" : this.form3.value.cmimi,
       "koha" : this.form3.value.koha,
       "pershkrimi" : this.form3.value.pershkrimi,
-      "video" : this.form3.value.video.File,
+      "video" : this.form3.value.video,
+      // "foto" : this.form3.value.foto.File,
+
 
     };
 
-    this.http.post("http://127.0.0.1:8000/api/insert_video",bodyData).subscribe((resultData: any)=>
+    this.http.post("http://127.0.0.1:8000/api/insert",bodyData).subscribe((resultData: any)=>
     {
         console.log(resultData);
         alert("Movie Registered Successfully")
         this.router.navigate(['/news'])
 
-        // this.getAllEmployee();
-        // this.title = '';
-        // this.address = '';
-        // this.mobile  = 0;
+
     });
   }
 

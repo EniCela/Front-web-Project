@@ -1,16 +1,33 @@
-        <tr>
-                <td>1</td>
-                <td>2345</td>
-                <td>The Notebook</td>
-                <td>Nick Cassavetes</td>
-                <td>2004</td>
-                <td>Drame/Romance</td>
-                <td>
-                    <button><i class="fa fa-edit"></i>Edit</button>
-                    <button style="background-color: red;"><i class="fa fa-trash"></i>Trash</button>
-                </td>
-            </tr>
-        <!-- </table>
-    </div>
-</body>
-</html> -->
+            <table class="table">
+              <thead>
+               <h1 *ngIf="!isResultLoaded" class="loader"></h1>
+
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">description</th>
+                  <th scope="col">Video</th>
+                  <th scope="col">Time</th>
+
+                  <th scope="col">Option</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let MoviesItem of MoviesArray">
+
+                  <th scope="row">{{MoviesItem.id  }}</th>
+                  <td>{{MoviesItem.titulli  | uppercase}}</td>
+                  <td>{{MoviesItem.pershkrimi }}</td>
+                  <td>{{MoviesItem.video}}</td>
+                  <td>{{MoviesItem.updated_at}}</td>
+                  <td>
+                    <a routerLink="/edit/{{MoviesItem.id}}"><button class="edit">edit</button></a>
+
+                    <!-- <button type="button" class="btn btn-success"  routerLink="/edit/{{NewsItem.id}}" >Edit</button> -->
+
+                    <button type="button" class="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+

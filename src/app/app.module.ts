@@ -20,6 +20,7 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { ShowusersComponent } from './showusers/showusers.component';
 import { Ng2SearchPipeModule , Ng2SearchPipe } from 'ng2-search-filter';
 import { AddmovieComponent } from './addmovie/addmovie.component';
+import { Provavideo1Component } from './provavideo1/provavideo1.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { AddmovieComponent } from './addmovie/addmovie.component';
     AddNewsComponent,
     EdituserComponent,
     ShowusersComponent,
-    AddmovieComponent
+    AddmovieComponent,
+    Provavideo1Component
 
   ],
   imports: [
