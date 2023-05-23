@@ -13,6 +13,9 @@ a {
 li {
     list-style: none;
 }
+li.link{
+  cursor: pointer;
+}
 h1 {
     color: black;
 }
@@ -48,6 +51,15 @@ th,
 td {
     text-align: left;
     padding: 8px;
+}
+
+.logout{
+  margin-left: 1rem;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 7px;
 }
 .side-menu {
     position: fixed;

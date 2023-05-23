@@ -1,0 +1,32 @@
+.navbar.navbar-expand-lg.navbar-light.bg-dark{
+  color: white;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+
+}
+#navbarTogglerDemo03 a{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  /* margin-left: 50px; */
+  position: relative;
+}
+.navbar1{
+  text-align: center;
+  /* margin-left: 30%; */
+}
+.login{
+  width: 20px;
+  color: white;
+}
+.nav1{
+  justify-content: end;
+  margin-left: 90% !important;
+}
+.navbar-nav{
+  /* justify-content: end; */
+  margin-left:900px ;
+}
+

@@ -1,8 +1,13 @@
 body{
-  background-image: url(https://e0.pxfuel.com/wallpapers/225/248/desktop-wallpaper-black-blue-gradient-linear-midnight-blue-000000-191970-30a%C2%B0.jpg);
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(34,34,85,1) 0%, rgba(0,212,255,1) 100%);
+  /* background-image: url(https://e0.pxfuel.com/wallpapers/225/248/desktop-wallpaper-black-blue-gradient-linear-midnight-blue-000000-191970-30a%C2%B0.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 /* login rtegister wallpaper */
 /* https://img.freepik.com/free-vector/round-podium-stage-spotlights-rays-realistic_107791-446.jpg */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

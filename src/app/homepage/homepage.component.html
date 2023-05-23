@@ -1,3 +1,23 @@
 <app-navbar></app-navbar>
 <app-carousel></app-carousel>
+<div>
+  <div class="movie1" id="movieid">
+    <div *ngFor="let item of MoviesArray">
+        <div class="card" style="width: 20rem;background-color:white;">
+            <img class="card-img-top" [routerLink]="['/moviedetail',item.id]" src="https://m.media-amazon.com/images/M/MV5BOTBlMjM0YzAtMTU3NC00N2U3LWE1YWYtZTJkZWRiNDA0OTg3XkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.ID}}</h5>
+                    <h5 class="card-title">{{item.titulli}}</h5>
+                    <h5 class="card-title">{{item.pershkrimi}}</h5>
+                    <h5 class="card-title">{{item.Time}}</h5>
+                </div>
+                <!-- <div class="card-body ">
+                <button type="button"  class="button3" style="margin: 5px; border-radius: 20px">Watch Later<i class="fa-regular fa-alarm-clock"></i></button>
+                <button type="button"  class="button2" style="margin: 5px; border-radius: 20px;">Favorite <i class="fa fa-thumbs-up"></i></button>
+                <button type="button"  class="button1" style="margin: 5px; border-radius: 20px;">PLay <i class="fa fa-play"></i></button>
+            </div> -->
+        </div>
+    </div>
+  </div>
+</div>
 <app-footer></app-footer>

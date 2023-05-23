@@ -65,6 +65,8 @@ ngOnInit(): void{
 get f(): { [key: string]: AbstractControl } {
   return this.form.controls;
 }
+login:any
+
 async onsubmit(form:FormGroup){
   console.log(this.form.value)
 
@@ -73,18 +75,43 @@ async onsubmit(form:FormGroup){
   const password =form.value.password;
 
 
-   this.http.post('http://127.0.0.1:8000/api/register', form.value).subscribe((response :any)=>{
-    localStorage.setItem('token-for-user', response.token);
+   this.http.post('http://127.0.0.1:8000/api/login', form.value).subscribe((response :any)=>{
+    if (response.status === 200) {
+      console.log(response.token);
+      localStorage.setItem('token-for-user', response.token);
+      Swal.fire({
+        icon: 'success',
+        title: response.message,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      if (email === 'enicela20@gmail.com' && password === 'Enicela1!') {
+        // this.authenticated = true;
+        // this.redirectUrl = this.redirectUrl === undefined ? '/' : this.redirectUrl;
+        this.router.navigate(['/admindashboard']);
+      }
+      else{
+        this.router.navigate(['/dashboard-user'])
+      }
+    }
+    else if(response.status === 400){
+      Swal.fire({
+        icon: 'error',
+        title: response.message,
+        showConfirmButton: false,
+        timer: 3000,
+      })
+    }
    })
-Swal.fire({
-  icon: 'success',
-title: 'Ju u loguat me sukses!',
-  showConfirmButton: false,
-  timer: 3000
-}).then((result) =>
-  this.router.navigate(['/admindashboard'])
+// Swal.fire({
+//   icon: 'success',
+// title: 'Ju u loguat me sukses!',
+//   showConfirmButton: false,
+//   timer: 3000
+// }).then((result) =>
+//   this.router.navigate(['/admindashboard'])
 
-)
+// )
 
 }
 }

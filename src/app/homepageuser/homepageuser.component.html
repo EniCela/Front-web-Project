@@ -1,0 +1,91 @@
+<!-- <app-navbar></app-navbar>
+<app-carousel></app-carousel>
+<app-footer></app-footer> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+    <i class="fas fa-bars"></i>
+    </button>
+    <div class="navbar1">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="/dashboard-user">Movie</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/favoritemovie" routerLinkActive="active">My Movies</a>
+        </li> -->
+        <li class="nav-item text-white">
+          <a  class="nav-link active text-white" aria-current="page" routerLink="/watchlater" routerLinkActive="active">Generes</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link active text-white" aria-current="page" routerLink="/news-user" routerLinkActive="active">News</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link active text-white" aria-current="page" routerLink="login" routerLinkActive="active" (click)="logout()" *ngIf="!loggin">Logout</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a  class="nav-link active" aria-current="page" routerLink="login" routerLinkActive="active" (click)="logout()" *ngIf="loggin">LogOut</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</div>
+</nav>
+
+<!-- <div *ngFor="let MoviesItem of MoviesArray">
+  <div class="card-group">
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{MoviesItem.titulli  | uppercase}}</h5>
+        <p>{{MoviesItem.id  }}</p>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p>{{MoviesItem.pershkrimi }}</p>
+        <p>{{MoviesItem.updated_at}}</p>
+        <p class="card-text"><small class="text-muted">{{MoviesItem.updated_at}}</small></p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="search container">
+  <!-- ********search************** -->
+  <input class="searchmovie" type="text" name="search" [(ngModel)]="filterstring"  placeholder="Search Movie">
+</div>
+
+
+<div class="movie1" id="movieid">
+  <div *ngFor="let item of MoviesArray |filter:filterstring">
+      <div class="card" style="width: 20rem;background-color:white;">
+          <img class="card-img-top" [routerLink]="['/moviedetail',item.id]" src="https://m.media-amazon.com/images/M/MV5BOTBlMjM0YzAtMTU3NC00N2U3LWE1YWYtZTJkZWRiNDA0OTg3XkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg">
+              <div class="card-body">
+                  <h5 class="card-title">{{item.ID}}</h5>
+                  <h5 class="card-title">{{item.titulli}}</h5>
+                  <h5 class="card-title">{{item.pershkrimi}}</h5>
+                  <h5 class="card-title">{{item.Time}}</h5>
+              </div>
+              <div class="card-body ">
+              <button type="button"  class="button3" style="margin: 5px; border-radius: 20px">Watch Later<i class="fa-regular fa-alarm-clock"></i></button>
+              <button type="button"  class="button2" style="margin: 5px; border-radius: 20px;">Favorite <i class="fa fa-thumbs-up"></i></button>
+              <button type="button"  class="button1" style="margin: 5px; border-radius: 20px;">PLay <i class="fa fa-play"></i></button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

@@ -10,8 +10,12 @@ import { ShowusersComponent } from './showusers/showusers.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { AddmovieComponent } from './addmovie/addmovie.component';
 import { MoviessComponent } from './moviess/moviess.component';
+import { HomepageuserComponent } from './homepageuser/homepageuser.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
+import { NewsUserComponent } from './news-user/news-user.component';
 
 const routes: Routes = [
+
   {path:"" , component:HomepageComponent},
   {path:"register", component:RegisterFormComponent},
   {path:"login",component:LoginFormComponent},
@@ -21,7 +25,15 @@ const routes: Routes = [
   {path:"edit/:id", component:EdituserComponent},
   {path:"admindashboard",component:AdminnComponent},
   {path:"movies",component:MoviessComponent},
-  {path:"addmovie",component:AddmovieComponent}
+  {path:"addmovie",component:AddmovieComponent},
+  {path:"homepage-user",component:HomepageuserComponent},
+  {path:"profile-user",component:ProfileUserComponent},
+  {path:"dashboard-user",component:HomepageuserComponent},
+  {path:"news-user",component:NewsUserComponent},
+
+
+
+
 ];
 
 @NgModule({

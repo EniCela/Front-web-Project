@@ -1,14 +1,14 @@
 <body>
     <div class="side-menu">
         <div class="brand-name">
-            <h3 style="color: black;">Admin Dashboard</h3>
+            <h1 style="color:white;">Admin Dashboard</h1>
         </div>
         <ul>
-            <li><img src="movie-clapper-open.png" alt="">&nbsp;<span routerLink="/movies">Movies</span> </li>
-            <li><img src="group.png" alt="">&nbsp;<span routerLink="/showuser">Users</span> </li>
-            <li><img src="advertisement.png" alt="">&nbsp;<span routerLink="/news">News</span></li>
-            <li><img src="positive-review.png" alt="">&nbsp;<span>Reviews</span> </li>
-            <li><img src="increase.png" alt="">&nbsp; <span>Sales</span></li>
+            <li class="link"><img src="movie-clapper-open.png" alt="">&nbsp;<span routerLink="/movies">Movies</span> </li>
+            <li class="link"><img src="group.png" alt="">&nbsp;<span routerLink="/showuser">Users</span> </li>
+            <li class="link"><img src="advertisement.png" alt="">&nbsp;<span routerLink="/news">News</span></li>
+            <li class="link"><img src="positive-review.png" alt="">&nbsp;<span>Reviews</span> </li>
+            <li class="link"><img src="increase.png" alt="">&nbsp; <span>Sales</span></li>
         </ul>
     </div>
     <div class="container">
@@ -20,6 +20,7 @@
                 </div>
                 <div class="user">
                     <a href="#" class="btn" routerLink="/addmovie">Add New Movies</a>
+                    <a href="#" class="logout" routerLink="/addmovie" (click)="logout()">Log Out</a>
                     <!-- <img src="notifications.png" alt=""> -->
                     <div class="img-case">
                         <!-- <img src="user.png" alt=""> -->
@@ -27,8 +28,9 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="content">
-            <div class="cards">
+        <div class="content">
+          <br><br>
+            <!-- <div class="cards">
                 <div class="card">
                     <div class="box">
                         <h1>1230</h1>
@@ -57,12 +59,12 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
                         <h2>Sales List</h2>
-                        <a href="#" class="btn">View All</a>
+                        <a href="#" class="btn" routerLink="/movies">View All</a>
                     </div>
                     <table>
                         <tr>
@@ -79,19 +81,19 @@
                         </tr>
                         <tr>
                             <td>Inside</td>
-                            <td>Gisela Jaho</td>
+                            <td>Eni Cela</td>
                             <td>$120</td>
                             <td><a href="#" class="btn">View</a></td>
                         </tr>
                         <tr>
                             <td>Inside</td>
-                            <td>Gisela Jaho</td>
+                            <td>Eglantina  Bilani</td>
                             <td>$79</td>
                             <td><a href="#" class="btn">View</a></td>
                         </tr>
                         <tr>
                             <td>Inside</td>
-                            <td>Gisela Jaho</td>
+                            <td>Fabjola Hysenaj</td>
                             <td>$86</td>
                             <td><a href="#" class="btn">View</a></td>
                         </tr>
@@ -112,7 +114,7 @@
                 <div class="new-users">
                     <div class="title">
                         <h2>New Users</h2>
-                        <a href="#" class="btn">View All</a>
+                        <a href="#" class="btn" routerLink="/showuser">View All</a>
                     </div>
                     <table>
                         <tr>
@@ -120,7 +122,7 @@
                             <th>Username</th>
                             <th>Option</th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td><img src="user.png" alt=""></td>
                             <td>Eni Cela</td>
                             <td><img src="info.png" alt=""></td>
@@ -139,12 +141,12 @@
                             <td><img src="user.png" alt=""></td>
                             <td>Eni Cela</td>
                             <td><img src="info.png" alt=""></td>
-                        </tr>
+                        </tr> -->
 
                     </table>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </body>
 

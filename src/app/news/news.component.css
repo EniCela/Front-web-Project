@@ -82,3 +82,13 @@ footer {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.search{
+  text-align: right;
+  margin: 1rem 3rem;
+}
+.search input{
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}

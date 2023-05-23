@@ -21,6 +21,18 @@ import { ShowusersComponent } from './showusers/showusers.component';
 import { Ng2SearchPipeModule , Ng2SearchPipe } from 'ng2-search-filter';
 import { AddmovieComponent } from './addmovie/addmovie.component';
 import { Provavideo1Component } from './provavideo1/provavideo1.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { Observable } from 'rxjs';
+import { HomepageuserComponent } from './homepageuser/homepageuser.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
+import { FotoaddComponent } from './fotoadd/fotoadd.component';
+import { NewsUserComponent } from './news-user/news-user.component';
+import { EditMoviesComponent } from './edit-movies/edit-movies.component';
+
 
 
 @NgModule({
@@ -40,7 +52,12 @@ import { Provavideo1Component } from './provavideo1/provavideo1.component';
     EdituserComponent,
     ShowusersComponent,
     AddmovieComponent,
-    Provavideo1Component
+    Provavideo1Component,
+    HomepageuserComponent,
+    ProfileUserComponent,
+    FotoaddComponent,
+    NewsUserComponent,
+    EditMoviesComponent
 
   ],
   imports: [
@@ -50,6 +67,12 @@ import { Provavideo1Component } from './provavideo1/provavideo1.component';
     FormsModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

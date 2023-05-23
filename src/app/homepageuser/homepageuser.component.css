@@ -10,7 +10,7 @@
 .card-img-top{
   width: 20rem;
   height: 280px;
-  border-radius: 20px;
+  border-radius: 10px;
 
 }
 .film{
@@ -42,7 +42,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, 370px);
   justify-content: center;
-  row-gap: 2rem;
+  row-gap: 1rem;
 }
 .search{
   text-align: right;
@@ -58,6 +58,4 @@
 .card:hover{
   transform: scale(1.03);
 }
-.card{
-  border-radius: 20px;
-}
+

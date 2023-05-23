@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {  FormGroup ,FormControl  } from '@angular/forms';
 import { HttpClient ,HttpHeaders } from '@angular/common/http';
 import { Router, Routes } from '@angular/router';
@@ -6,11 +6,22 @@ import { Observable } from 'rxjs';
 import { VideoMaster } from '../video-master';
 
 @Component({
-  selector: 'app-addmovie',
-  templateUrl: './addmovie.component.html',
-  styleUrls: ['./addmovie.component.css']
+  selector: 'app-edit-movies',
+  templateUrl: './edit-movies.component.html',
+  styleUrls: ['./edit-movies.component.css']
 })
-export class AddmovieComponent  implements OnInit{
+
+export class EditMoviesComponent {
+  titulli: any;
+  regjizori: any;
+  viti: any;
+  cmimi: any;
+  koha: any;
+  video: any;
+  foto: any;
+  isResultLoaded: boolean | undefined;
+  MoviesArray: any;
+  currentnewsID: any;
 
   constructor(
     private http:HttpClient,
@@ -62,6 +73,7 @@ export class AddmovieComponent  implements OnInit{
   //  }
 
   ngOnInit(): void {
+    this.getAllMovies();
 
   }
 
@@ -99,4 +111,45 @@ export class AddmovieComponent  implements OnInit{
         this.router.navigate(['/admindashboard'])
     });
   }
+
+  setUpdate(data: any)
+  {
+   this.titulli = data.titulli;
+   this.regjizori = data.pershkrimi;
+   this.viti = data.viti;
+   this.cmimi = data.cmimi;
+   this.koha = data.koha;
+   this.video = data.video;
+   this.foto = data.foto;
+   this.currentnewsID = data.id;
+
+  }
+
+
+  getAllMovies()
+  {
+
+    this.http.get("http://127.0.0.1:8000/api/movie")
+
+    .subscribe((resultData: any)=>
+    {
+        this.isResultLoaded = true;
+        this.MoviesArray = resultData;
+        console.log(this.MoviesArray)
+    });
+  }
+
+  setDelete(data: any)
+  {
+    this.http.delete("http://127.0.0.1:8000/api/movies-delete"+ "/"+ data.id).subscribe((resultData: any)=>
+    {
+        console.log(resultData);
+        alert("Movies Deletedddd")
+        this.getAllMovies();
+
+    });
+
+  }
+
+
 }

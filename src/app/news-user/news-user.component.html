@@ -1,0 +1,35 @@
+
+<main class="main">
+  <h2>Lajmet</h2>
+  <!-- <table class="table">
+    <thead>
+     <h1 *ngIf="!isResultLoaded" class="loader"></h1>
+
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">description</th>
+        <th scope="col">Time</th>
+        <th scope="col">Option</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let NewsItem of NewsArray | filter:filterstring">
+
+        <th scope="row">{{NewsItem.id  }}</th>
+        <td>{{NewsItem.title  | uppercase}}</td>
+        <td>{{NewsItem.descripton }}</td>
+        <td>{{NewsItem.updated_at}}</td>
+      </tr>
+    </tbody>
+  </table> -->
+</main>
+<div style="color: white;" *ngFor="let NewsItem of NewsArray | filter:filterstring" >
+<p>titulli:{{NewsItem.title}}</p>
+<p>pershkrimi:{{NewsItem.descripton}}</p>
+<p>date:{{NewsItem.updated_at}}</p><br><br>
+
+
+</div>
+
+
